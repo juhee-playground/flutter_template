@@ -1,5 +1,9 @@
 # assistant
 
+- flutter create -t skeleton assistant
+- cd assistant
+- flutter run
+
 A new Flutter project.
 
 ## Getting Started
