@@ -1,9 +1,10 @@
+import 'package:assistant/src/views/axios_view.dart';
 import 'package:flutter/material.dart';
 
 import '../settings/settings_view.dart';
 import '../views/login_view.dart';
 import 'route_item.dart';
-import 'sample_item_details_view.dart';
+import '../views/sample_item_details_view.dart';
 
 /// Displays a list of SampleItems.
 class RouteListView extends StatelessWidget {
@@ -12,7 +13,8 @@ class RouteListView extends StatelessWidget {
     this.items = const [
       RouteItem("샘플 아이템", SampleItemDetailsView.routeName),
       RouteItem("로그인", LoginView.routeName),
-      RouteItem("세팅", SettingsView.routeName)
+      RouteItem("세팅", SettingsView.routeName),
+      RouteItem("Axios 테스트", AxiosView.routeName)
     ],
   });
 
