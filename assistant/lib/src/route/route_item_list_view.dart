@@ -1,3 +1,4 @@
+import 'package:assistant/src/settings/settings_view_provider.dart';
 import 'package:assistant/src/views/axios_view.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class RouteListView extends StatelessWidget {
     this.items = const [
       RouteItem("샘플 아이템", SampleItemDetailsView.routeName),
       RouteItem("로그인", LoginView.routeName),
-      RouteItem("세팅", SettingsView.routeName),
+      RouteItem("세팅", SettingsViewWithProvider.routeName),
       RouteItem("Axios 테스트", AxiosView.routeName)
     ],
   });
@@ -56,7 +57,7 @@ class RouteListView extends StatelessWidget {
           final item = items[index];
 
           return ListTile(
-              title: Text('${item.name}'),
+              title: Text(item.name),
               leading: const CircleAvatar(
                 // Display the Flutter Logo image asset.
                 foregroundImage: AssetImage('assets/images/flutter_logo.png'),
