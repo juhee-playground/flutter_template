@@ -2,7 +2,6 @@ import 'package:assistant/src/settings/settings_view_provider.dart';
 import 'package:assistant/src/views/axios_view.dart';
 import 'package:flutter/material.dart';
 
-import '../settings/settings_view.dart';
 import '../views/login_view.dart';
 import 'route_item.dart';
 import '../views/sample_item_details_view.dart';
@@ -35,7 +34,8 @@ class RouteListView extends StatelessWidget {
               // Navigate to the settings page. If the user leaves and returns
               // to the app after it has been killed while running in the
               // background, the navigation stack is restored.
-              Navigator.restorablePushNamed(context, SettingsView.routeName);
+              Navigator.restorablePushNamed(
+                  context, SettingsViewWithProvider.routeName);
             },
           ),
         ],
