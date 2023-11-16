@@ -1,3 +1,4 @@
+import 'package:assistant/src/axios/auth.dart';
 import 'package:flutter/material.dart';
 
 import '../components/my_button.dart';
@@ -13,6 +14,9 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   void signInUser() async {
     showDialog(
       context: context,
@@ -20,10 +24,33 @@ class _LoginViewState extends State<LoginView> {
         return const Center(child: CircularProgressIndicator());
       },
     );
-    // try {} on Exception catch (e) {
-    //   Navigator.pop(context);
-    //   genericErrorMessage(e.code);
-    // }
+    try {
+      login(emailController.text, passwordController.text);
+      Navigator.pop(context); // pop loading circle
+      genericSuccessMessage('로그인 성공');
+    } on Exception catch (e) {
+      Navigator.pop(context); // pop loading circle
+      genericErrorMessage(e.toString());
+    }
+  }
+
+  void genericSuccessMessage(String message) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(message),
+            content: Text(''),
+            actions: <Widget>[
+              TextButton(
+                child: Text('Ok'),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          );
+        });
   }
 
   void genericErrorMessage(String message) {
@@ -47,8 +74,6 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    final emailController = TextEditingController();
-    final passwordController = TextEditingController();
     return Scaffold(
         appBar: AppBar(
           title: const Text('로그인'),
