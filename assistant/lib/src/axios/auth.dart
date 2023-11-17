@@ -7,14 +7,14 @@ import 'token.dart';
 
 const baseUrl = 'http://localhost:8080/api';
 
-Future<User> register(String username, String email, String password) async {
-  var token = await getToken();
+Future<User> signup(String username, String email, String password) async {
+  // var token = await getToken();
 
   final response = await http.post(
     Uri.parse('$baseUrl/user/register'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
-      'Authorization': 'Bearer $token'
+      // 'Authorization': 'Bearer $token'
     },
     body: jsonEncode(<String, String>{
       'username': username,
@@ -24,8 +24,14 @@ Future<User> register(String username, String email, String password) async {
   );
 
   if (response.statusCode == 200) {
-    log('Success Regist with email: $email');
-    return User.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+    var body = jsonDecode(response.body);
+    var data = jsonDecode(body['data']);
+    // var status = body['status'];
+    // var message = body['message'];
+    // var responseStringBody = response.body;
+
+    // return response.body;
+    return User.fromJson(data);
   } else {
     throw Exception('Failed to create album.');
   }

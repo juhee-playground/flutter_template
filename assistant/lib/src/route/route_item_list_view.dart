@@ -1,8 +1,8 @@
 import 'package:assistant/src/settings/settings_view_provider.dart';
 import 'package:assistant/src/views/axios_view.dart';
+import 'package:assistant/src/views/login_signup/login_singup_view.dart';
 import 'package:flutter/material.dart';
 
-import '../views/login_view.dart';
 import 'route_item.dart';
 import '../views/sample_item_details_view.dart';
 
@@ -12,7 +12,7 @@ class RouteListView extends StatelessWidget {
     super.key,
     this.items = const [
       RouteItem("샘플 아이템", SampleItemDetailsView.routeName),
-      RouteItem("로그인", LoginView.routeName),
+      RouteItem("로그인", LoginSingupView.routeName),
       RouteItem("세팅", SettingsViewWithProvider.routeName),
       RouteItem("Axios 테스트", AxiosView.routeName)
     ],

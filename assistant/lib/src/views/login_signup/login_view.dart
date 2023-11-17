@@ -1,11 +1,11 @@
 import 'package:assistant/src/axios/auth.dart';
 import 'package:flutter/material.dart';
 
-import '../components/my_button.dart';
+import '../../components/my_button.dart';
 
-/// Displays detailed information about a RouteItem.
 class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+  const LoginView({Key? key, required this.onTap}) : super(key: key);
+  final Function()? onTap;
 
   static const routeName = '/login';
 
@@ -40,10 +40,13 @@ class _LoginViewState extends State<LoginView> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text(message),
-            content: Text(''),
+            content: const Text(''),
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20.0))),
+            backgroundColor: Colors.green,
             actions: <Widget>[
               TextButton(
-                child: Text('Ok'),
+                child: const Text('확인'),
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -58,6 +61,9 @@ class _LoginViewState extends State<LoginView> {
       context: context,
       builder: (context) {
         return AlertDialog(
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20.0))),
+          backgroundColor: Colors.red,
           title: Text(message),
           actions: [
             TextButton(
@@ -141,6 +147,25 @@ class _LoginViewState extends State<LoginView> {
               const SizedBox(
                 height: 10,
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Not a member? ',
+                    style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                  ),
+                  GestureDetector(
+                    onTap: widget.onTap,
+                    child: Text(
+                      'Register now',
+                      style: TextStyle(
+                          color: Colors.blue[900],
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15),
+                    ),
+                  ),
+                ],
+              )
             ]),
           )),
         ));

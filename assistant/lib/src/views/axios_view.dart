@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import '../model/album.dart';
-import '../axios/axios.dart' as axios;
+import '../axios/example.dart' as axios;
 
 class AxiosView extends StatefulWidget {
   const AxiosView({super.key});
