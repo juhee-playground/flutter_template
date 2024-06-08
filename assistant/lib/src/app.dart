@@ -1,3 +1,4 @@
+import 'package:assistant/src/views/google/map.dart';
 import 'package:assistant/src/views/login_signup/signup_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -69,6 +70,8 @@ class MyApp extends StatelessWidget {
                 return const LoginSingupView();
               case AxiosView.routeName:
                 return const AxiosView();
+              case MapSampleView.routeName:
+                return const MapSampleView();
               case RouteListView.routeName:
               default:
                 return const RouteListView();

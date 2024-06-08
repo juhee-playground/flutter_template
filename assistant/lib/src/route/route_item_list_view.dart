@@ -1,5 +1,6 @@
 import 'package:assistant/src/settings/settings_view_provider.dart';
 import 'package:assistant/src/views/axios_view.dart';
+import 'package:assistant/src/views/google/map.dart';
 import 'package:assistant/src/views/login_signup/login_singup_view.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,8 @@ class RouteListView extends StatelessWidget {
       RouteItem("샘플 아이템", SampleItemDetailsView.routeName),
       RouteItem("로그인", LoginSingupView.routeName),
       RouteItem("세팅", SettingsViewWithProvider.routeName),
-      RouteItem("Axios 테스트", AxiosView.routeName)
+      RouteItem("Axios 테스트", AxiosView.routeName),
+      RouteItem("구글맵", MapSampleView.routeName)
     ],
   });
 
