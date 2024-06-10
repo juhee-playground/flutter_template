@@ -1,5 +1,4 @@
 import 'package:template/src/views/google/map.dart';
-import 'package:template/src/views/login_signup/signup_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
